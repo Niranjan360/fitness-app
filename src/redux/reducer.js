@@ -5,7 +5,7 @@ let Reducer=(state=user , action)=>
     switch(action.type)
     {
         case "add_user" : return action.payload;
-        case "logout" : return null
+        case "logout" : return action.payload;
         default : return state;
     }
 
