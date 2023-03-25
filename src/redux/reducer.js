@@ -1,11 +1,11 @@
-let user = null;
+let initialState =  { user : null } ;
 
-let Reducer=(state=user , action)=>
+let Reducer=(state=initialState , action)=>
 {
     switch(action.type)
     {
-        case "add_user" : return action.payload;
-        case "logout" : return action.payload;
+        case "add_user" : return { ...state , user : action.payload   };
+        case "logout" : return {...state , user : action.payload };
         default : return state;
     }
 

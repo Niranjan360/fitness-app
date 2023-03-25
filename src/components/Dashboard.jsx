@@ -23,7 +23,7 @@ const Dashboard = ( {userdetails , remove_user} ) => {
  
 let mapStateToProps = (state)=>{
     return { 
-        userdetails : state
+        userdetails : state.user
     };
 }
 

@@ -2,18 +2,19 @@ import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const Protect = ({child , userdetails}) => {
+    console.log(userdetails)
     return ( 
     <>
-    { userdetails!=null ? 
-        (child) : (<Navigate to="/login"/>)
-    }
+        { 
+            userdetails ? (child)  : (<Navigate to="/login" replace/>)
+        }
     </>
     );
 }
 
 let mapStateToProps = (state)=>{
     return {
-        userdetails : state
+        userdetails : state.user
     }
 }
 export default connect(mapStateToProps)(Protect);
