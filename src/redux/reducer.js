@@ -8,8 +8,6 @@ let Reducer=(state=initialState , action)=>
         case "logout" : return {...state , user : action.payload };
         default : return state;
     }
-
 }
-
 
 export default Reducer;
