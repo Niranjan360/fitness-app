@@ -11,7 +11,9 @@
       "password": "gunda@123",
       "age": "40",
       "gender": "male",
-      "id": 2
+      "id": 2,
+      "bmi": 39.03,
+      "health": "Obese Class II"
     },
     {
       "username": "abhi",
@@ -19,7 +21,9 @@
       "password": "abhi123",
       "age": "30",
       "gender": "male",
-      "id": 3
+      "id": 3,
+      "bmi": 35.5,
+      "health": "Obese Class II"
     },
     {
       "username": "ramya",

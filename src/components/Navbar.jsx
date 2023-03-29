@@ -1,26 +1,32 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
     let [menu , setMenu] = useState(false);
+    let dispatch = useDispatch();
 
     return ( 
         <nav>
-            <div id="logo">
-                <h2>Fit-Bit  </h2>
-                <i class='bx bx-dumbbell'></i>
-            </div>
+            <Link to="/home">
+                <div id="logo">
+                    <h2>Fit-Bit  </h2>
+                    <i class='bx bx-dumbbell'></i>
+                </div>
+            </Link>
             <div className="nav-links">
                 <Link to="">Trainer</Link>
                 <Link to="">Workouts</Link>
                 <Link to="">My workouts</Link>
-                <Link to="">BMR Calculator</Link>
+                <Link to="/bmi">BMI Calculator</Link>
                 <Link to="">Profile</Link>
             </div>
 
             <div className="logout-btn">
-                <button>Logout</button>
+                <button onClick={()=>{    
+                    dispatch( {type:"logout" , payload : null} )
+                }}>Logout</button>
             </div>
 
             <div className="hamberger"

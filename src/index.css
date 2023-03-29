@@ -120,14 +120,19 @@ nav{
   position: sticky;
   top: 0px;
 }
+nav a{
+  text-decoration: none;
+}
 #logo{
   background-color: #F7DF1E;
   display: flex;
   align-items: center;
   padding:4px 10px;
   border-radius: 0px 10px;
+  color: black;
 }
 #logo i{
+  color: black;
   font-size: 28px;
   margin-left: 10px;
 }

@@ -5,13 +5,14 @@ import Login from './components/Login'
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import Protect from './components/Protect';
+import Fitness from './components/Fitness';
 
 
 function App() {
   return (
    <BrowserRouter>
     <div className="App">      
-      <Routes>
+      <Routes>  
 
         <Route path="/" element={<Signup/>}/>
 
@@ -20,6 +21,11 @@ function App() {
         <Route path="/home" element={ <Protect child={<Dashboard/>}/> }/>
 
         <Route path="/profile" element={ <Protect child={<Profile/>}/> }/>
+
+        <Route path="/bmi" element={ <Protect child={<Fitness/>}/> }/>
+
+
+
 
       </Routes>
     </div>
