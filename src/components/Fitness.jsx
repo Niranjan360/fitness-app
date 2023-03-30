@@ -74,13 +74,6 @@ const Fitness = () => {
                                 <button onClick={handleUpdateHealth}>Save health details</button>
 
                             </div>}
-
-
-
-
-
-
-
         </div>
     );
 }

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
 
     let [menu , setMenu] = useState(false);
     let dispatch = useDispatch();
+
+    let {pathname : path} =  useLocation()
 
     return ( 
         <nav>
@@ -16,11 +18,13 @@ const Navbar = () => {
                 </div>
             </Link>
             <div className="nav-links">
-                <Link to="">Trainer</Link>
-                <Link to="">Workouts</Link>
-                <Link to="">My workouts</Link>
-                <Link to="/bmi">BMI Calculator</Link>
-                <Link to="">Profile</Link>
+            {path=="/trainerdashboard" &&  <Link to="/workouts">Workouts</Link>}
+                
+            {path!="/trainerdashboard" &&  <><Link to="">Trainer</Link>
+                                                <Link to="/workouts">Workouts</Link>
+                                                <Link to="">My workouts</Link>
+                                                <Link to="/bmi">BMI Calculator</Link>
+                                                <Link to="">Profile</Link></>}
             </div>
 
             <div className="logout-btn">
