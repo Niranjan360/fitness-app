@@ -31,7 +31,57 @@
       "password": "1234567890",
       "age": "22",
       "gender": "female",
-      "id": 4
+      "id": 4,
+      "workouts": [
+        {
+          "bodyPart": "waist",
+          "equipment": "body weight",
+          "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0001.gif",
+          "id": "0001",
+          "name": "3/4 sit-up",
+          "target": "abs"
+        },
+        {
+          "bodyPart": "waist",
+          "equipment": "body weight",
+          "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0002.gif",
+          "id": "0002",
+          "name": "45° side bend",
+          "target": "abs"
+        },
+        {
+          "bodyPart": "waist",
+          "equipment": "body weight",
+          "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0003.gif",
+          "id": "0003",
+          "name": "air bike",
+          "target": "abs"
+        },
+        {
+          "bodyPart": "lower legs",
+          "equipment": "body weight",
+          "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1368.gif",
+          "id": "1368",
+          "name": "ankle circles",
+          "target": "calves"
+        },
+        {
+          "bodyPart": "back",
+          "equipment": "body weight",
+          "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+          "id": "3293",
+          "name": "archer pull up",
+          "target": "lats"
+        },
+        {
+          "bodyPart": "chest",
+          "equipment": "body weight",
+          "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/3294.gif",
+          "id": "3294",
+          "name": "archer push up",
+          "target": "pectorals"
+        }
+      ]
     }
   ],
   "trainers": [
@@ -39,13 +89,48 @@
       "username": "dummy",
       "password": "dummy@123",
       "id": 1
+    },
+    {
+      "username": "madhu",
+      "email": "madhu@gmail",
+      "password": "madhu123",
+      "age": "30",
+      "gender": "male",
+      "id": 2
+    },
+    {
+      "username": "karthik",
+      "email": "karthik@gmail",
+      "password": "karthik123",
+      "age": "30",
+      "gender": "male",
+      "id": 3
+    },
+    {
+      "username": "vibha",
+      "email": "vibha@gmail",
+      "password": "vibha123",
+      "age": "29",
+      "gender": "female",
+      "id": 4
     }
   ],
   "workouts": [
     {
-      "workout": "dummy",
-      "calories": "100",
+      "bodyPart": "cardio",
+      "equipment": "body weight",
+      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/3220.gif",
+      "name": "astride jumps",
+      "target": "",
       "id": 1
+    },
+    {
+      "bodyPart": "cardio",
+      "equipment": "body weight",
+      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/3220.gif",
+      "name": "astride jumps",
+      "target": "cardiovascular system",
+      "id": 2
     }
   ]
 }

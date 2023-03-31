@@ -22,7 +22,7 @@ const Navbar = () => {
                 
             {path!="/trainerdashboard" &&  <><Link to="">Trainer</Link>
                                                 <Link to="/workouts">Workouts</Link>
-                                                <Link to="">My workouts</Link>
+                                                <Link to="/myworkouts">My workouts</Link>
                                                 <Link to="/bmi">BMI Calculator</Link>
                                                 <Link to="">Profile</Link></>}
             </div>

@@ -1,24 +1,80 @@
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { HashLoader } from "react-spinners";
 
 const Workouts = () => {
 
     let [workouts , setWorkouts] =  useState(null);
 
+    let user = useSelector( (state)=>{ return state.user } );
+    let userdetails = {...user }
+    if( userdetails.workouts == undefined )
+    {
+        userdetails.workouts = [];
+    }
+    let dispatch = useDispatch();
+
     useEffect(()=>{
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': 'da3e9d6194msh99ca5a70f09bf66p1531afjsncb0199344067',
-                'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+        setTimeout(()=>{
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'da3e9d6194msh99ca5a70f09bf66p1531afjsncb0199344067',
+                    'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+                }
+            };
+            
+            fetch('https://exercisedb.p.rapidapi.com/exercises', options)
+            .then(response => response.json())
+            .then(data => { console.log(data); setWorkouts(data)})
+            .catch(err => console.error(err));
+        } , 3000)
+    } , []);
+
+
+    let handleWorkouts = (workout)=>{
+        userdetails.workouts.push(workout);
+
+        dispatch(
+            {
+                type : "workout_added" ,
+                payload : userdetails
             }
-        };
-        
-        fetch('https://exercisedb.p.rapidapi.com/exercises', options)
-        .then(response => response.json())
-        .then(data => { console.log(data); setWorkouts(data)})
-        .catch(err => console.error(err));
-    } , [])
+        )
+
+        fetch("http://localhost:4000/users/"+user.id , 
+                                                        {
+                                                            method : "PUT",
+                                                            headers : {"Content-Type" : "application/json"},
+                                                            body : JSON.stringify(userdetails)
+                                                        }
+        )
+        .then(()=>{alert("Workout added")});
+    }
+
+    let handleRemoveWorkouts = (wid)=>{
+
+        let start = userdetails.workouts.findIndex((w)=>{ return w.id == wid})
+        userdetails.workouts.splice(start , 1);
+
+        dispatch(
+            {
+                type : "workout_added" ,
+                payload : userdetails
+            }
+        )
+
+
+        fetch("http://localhost:4000/users/"+user.id , 
+                                                        {
+                                                            method : "PUT",
+                                                            headers : {"Content-Type" : "application/json"},
+                                                            body : JSON.stringify(userdetails)
+                                                        }
+        )
+        .then(()=>{alert("Workout removed")});
+    }
 
 
     return (<div>
@@ -33,11 +89,21 @@ const Workouts = () => {
                             <h4>Workout name : { workout.name } </h4>
                             <p>Body part : {workout.bodyPart}</p>
                             <p>Equipment : {workout.equipment}</p>
+                            {
+                               !userdetails.workouts.some((w)=>{ return w.id == workout.id})
+                               && <button onClick={()=>{handleWorkouts(workout)}}>Add</button>
+                            }
+                            {
+                               userdetails.workouts.some((w)=>{ return w.id == workout.id})
+                               && <button onClick={()=>{handleRemoveWorkouts(workout.id)}} >Remove</button>
+                            }
                         </div>
                     )
                 })
             }
         </div>}
+
+        {!workouts &&  <HashLoader color="F7DF1E" />}
 
     </div>   );
 }

@@ -8,6 +8,7 @@ import Protect from './components/Protect';
 import Fitness from './components/Fitness';
 import Trainerdashbaord from './components/Trainerdashbaord';
 import Workouts from './components/Workouts';
+import Myworkouts from './components/Myworkouts';
 
 
 function App() {
@@ -29,6 +30,10 @@ function App() {
         <Route path="/trainerdashboard" element={ <Protect child={<Trainerdashbaord/>}/> }/>
 
         <Route path="/workouts" element={ <Protect child={<Workouts/>}/> }/>
+
+        <Route path="/myworkouts" element={ <Protect child={<Myworkouts/>}/> }/>
+
+
       
 
 

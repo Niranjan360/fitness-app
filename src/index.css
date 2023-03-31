@@ -215,12 +215,41 @@ nav div button{
 }
 .all-workouts div{
   width: 250px;
+  padding: 8px;
+  border: solid 1px rgb(131, 129, 129);
+  border-radius: 7px;
+  text-align: center;
 }
 .all-workouts div img{
   width: 80%;
+  border-radius: 7px;
+}
+.all-workouts button{
+  display: block;
+  margin: 5px auto;
+  padding: 4px 8px;
+  font-size: 16px;
+}
+.loader{
+  margin: 50px auto;
+  width: 200px;
+  height: 200px;
+  border-top: solid 10px #F7DF1E;
+  border-right: solid 10px transparent;
+  border-bottom: solid 10px #F7DF1E;
+  border-left: solid 10px transparent;
+  border-radius: 50%;
+  animation: loading 1s infinite linear;
 }
 
-
+@keyframes loading {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
 
 
 

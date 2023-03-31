@@ -7,6 +7,7 @@ let Reducer=(state=initialState , action)=>
         case "add_user" : return { ...state , user : action.payload   };
         case "logout" : return {...state , user : action.payload };
         case "updateHealth" : return { ...state , user : {...state.user , bmi : action.payload.bmi , health : action.payload.health}  }
+        case "workout_added" : return {...state , user : action.payload };
         default : return state;
     }
 }
